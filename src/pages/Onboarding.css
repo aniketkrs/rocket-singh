@@ -1,0 +1,125 @@
+/* ── Onboarding ─────────────────────────────────────────── */
+
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.onboarding__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.onboarding__title {
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.onboarding__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 24px;
+}
+
+.onboarding__form {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Section Card */
+.onboarding__section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: slideUp 0.4s ease both;
+}
+
+.onboarding__section:nth-child(2) { animation-delay: 60ms; }
+.onboarding__section:nth-child(3) { animation-delay: 120ms; }
+.onboarding__section:nth-child(4) { animation-delay: 180ms; }
+
+.onboarding__section-header {
+  padding: 14px 20px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.onboarding__section-icon {
+  font-size: 1.1rem;
+}
+
+.onboarding__section-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.onboarding__section-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Form row (for side-by-side fields) */
+.onboarding__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Negotiation 3-col */
+.onboarding__row--3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Footer */
+.onboarding__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Saved indicator */
+.onboarding__saved {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--accent-emerald);
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .onboarding__row,
+  .onboarding__row--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding__body {
+    padding: 16px;
+  }
+}

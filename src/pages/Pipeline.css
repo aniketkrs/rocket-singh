@@ -1,0 +1,199 @@
+/* ── Pipeline ───────────────────────────────────────────── */
+
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.pipeline__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  backdrop-filter: blur(12px);
+}
+
+.pipeline__header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pipeline__title {
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pipeline__title-icon {
+  font-size: 1.3rem;
+}
+
+.pipeline__lead-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.pipeline__header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Board */
+.pipeline__board {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pipeline__column {
+  min-width: 280px;
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--bg-primary);
+  height: 100%;
+}
+
+.pipeline__column:last-child {
+  border-right: none;
+}
+
+.pipeline__column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.pipeline__column-title {
+  font-size: 0.78rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.pipeline__column-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Column accent colors */
+.pipeline__column--blue .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-blue);
+}
+.pipeline__column--blue .pipeline__column-count {
+  background: var(--accent-blue-dim);
+  color: var(--accent-blue);
+}
+
+.pipeline__column--purple .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-purple);
+}
+.pipeline__column--purple .pipeline__column-count {
+  background: var(--accent-purple-dim);
+  color: var(--accent-purple);
+}
+
+.pipeline__column--amber .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-amber);
+}
+.pipeline__column--amber .pipeline__column-count {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+}
+
+.pipeline__column--cyan .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-cyan);
+}
+.pipeline__column--cyan .pipeline__column-count {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+}
+
+.pipeline__column--emerald .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-emerald);
+}
+.pipeline__column--emerald .pipeline__column-count {
+  background: var(--accent-emerald-dim);
+  color: var(--accent-emerald);
+}
+
+.pipeline__column--rose .pipeline__column-header {
+  border-bottom: 2px solid var(--accent-rose);
+}
+.pipeline__column--rose .pipeline__column-count {
+  background: var(--accent-rose-dim);
+  color: var(--accent-rose);
+}
+
+/* Cards area */
+.pipeline__column-cards {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pipeline__column-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.78rem;
+  gap: 8px;
+}
+
+.pipeline__column-empty-icon {
+  font-size: 1.6rem;
+  opacity: 0.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pipeline__header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pipeline__column {
+    min-width: 260px;
+    width: 260px;
+  }
+}

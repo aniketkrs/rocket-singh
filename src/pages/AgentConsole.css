@@ -1,0 +1,224 @@
+/* ── AgentConsole ───────────────────────────────────────── */
+
+.agent-console {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Left Panel */
+.agent-console__left {
+  width: 340px;
+  min-width: 300px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.agent-console__left-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-tertiary);
+}
+
+.agent-console__left-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.agent-console__lead-selector {
+  width: 100%;
+}
+
+/* Lead info */
+.agent-console__lead-info {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: slideUp 0.3s ease;
+}
+
+.agent-console__lead-name {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.agent-console__lead-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.agent-console__lead-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.agent-console__lead-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agent-console__lead-score-bar {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.agent-console__lead-score-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.agent-console__lead-score-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+/* Agent Actions */
+.agent-console__actions {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.agent-console__actions-title {
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.agent-console__action-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.agent-console__action-btn:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+  transform: translateX(3px);
+}
+
+.agent-console__action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.agent-console__action-icon {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.agent-console__action-label {
+  flex: 1;
+}
+
+.agent-console__action-arrow {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Run Next - special styling */
+.agent-console__run-next {
+  background: linear-gradient(135deg, rgba(79, 143, 247, 0.12), rgba(155, 109, 255, 0.08));
+  border-color: rgba(79, 143, 247, 0.2);
+}
+
+.agent-console__run-next:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(79, 143, 247, 0.2), rgba(155, 109, 255, 0.15));
+  border-color: rgba(79, 143, 247, 0.35);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Right Panel */
+.agent-console__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.agent-console__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-muted);
+  padding: 40px;
+  text-align: center;
+}
+
+.agent-console__empty-icon {
+  font-size: 3.5rem;
+  opacity: 0.3;
+  animation: pulse 3s infinite;
+}
+
+.agent-console__empty-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.agent-console__empty-desc {
+  font-size: 0.82rem;
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agent-console {
+    flex-direction: column;
+  }
+
+  .agent-console__left {
+    width: 100%;
+    min-width: unset;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

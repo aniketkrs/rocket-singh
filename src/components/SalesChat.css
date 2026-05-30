@@ -1,0 +1,233 @@
+/* ── SalesChat ──────────────────────────────────────────── */
+
+.sales-chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.sales-chat__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.sales-chat__header-icon {
+  font-size: 1.2rem;
+}
+
+.sales-chat__header-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.sales-chat__header-status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--accent-emerald);
+  font-weight: 500;
+}
+
+.sales-chat__header-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  animation: pulse 2s infinite;
+}
+
+.sales-chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+.sales-chat__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.sales-chat__empty-icon {
+  font-size: 2.5rem;
+  opacity: 0.5;
+}
+
+.sales-chat__empty-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Message bubbles */
+.sales-chat__message {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+  animation: slideUp 0.25s ease;
+}
+
+.sales-chat__message--prospect {
+  align-self: flex-start;
+}
+
+.sales-chat__message--agent {
+  align-self: flex-end;
+}
+
+.sales-chat__message--system {
+  align-self: center;
+  max-width: 90%;
+}
+
+.sales-chat__message-role {
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  padding: 0 8px;
+}
+
+.sales-chat__message--prospect .sales-chat__message-role {
+  color: var(--accent-amber);
+}
+
+.sales-chat__message--agent .sales-chat__message-role {
+  color: var(--accent-blue);
+  text-align: right;
+}
+
+.sales-chat__message--system .sales-chat__message-role {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.sales-chat__message-bubble {
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.sales-chat__message--prospect .sales-chat__message-bubble {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+
+.sales-chat__message--agent .sales-chat__message-bubble {
+  background: linear-gradient(135deg, rgba(79, 143, 247, 0.15), rgba(155, 109, 255, 0.1));
+  border: 1px solid rgba(79, 143, 247, 0.15);
+  border-bottom-right-radius: 4px;
+  backdrop-filter: blur(8px);
+}
+
+.sales-chat__message--system .sales-chat__message-bubble {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+.sales-chat__message-time {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  padding: 0 8px;
+}
+
+.sales-chat__message--agent .sales-chat__message-time {
+  text-align: right;
+}
+
+.sales-chat__message--system .sales-chat__message-time {
+  text-align: center;
+}
+
+/* Input area */
+.sales-chat__input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border);
+}
+
+.sales-chat__input {
+  flex: 1;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.sales-chat__input:focus {
+  border-color: var(--border-focus);
+}
+
+.sales-chat__input::placeholder {
+  color: var(--text-muted);
+}
+
+.sales-chat__send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.sales-chat__send-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.sales-chat__send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sales-chat__send-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
